@@ -1,13 +1,18 @@
 import React from 'react'
+import {Route, Routes} from "react-router-dom" 
+import NavBar from './components/NavBar'
 import Customerlist from './components/Customerlist'
-import {BrowserRouter, Routes, Route, Link} from 'react-router-dom'
 import Traininglist from './components/Traininglist'
 
 export default function App() {
 
   return (
     <>
-      <Traininglist/>
+      <NavBar/>
+      <Routes>
+        <Route path='/' element={<Customerlist/>}/>
+        <Route path='/trainings' element={<Traininglist/>}/>
+      </Routes>
     </>
   )
 }
