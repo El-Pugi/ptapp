@@ -26,7 +26,7 @@ export default function Traininglist(){
     const [colDefs, setColDefs] = useState([
         {field: "activity"},
         {field: "date",
-            valueFormatter: p => moment(p.date).format('DD.MM.YYYY HH:mm')
+            valueFormatter: p => moment(p.data.date).format('DD.MM.YYYY HH:mm')
         },
         {field: "duration"},
         {field: "customer", 
