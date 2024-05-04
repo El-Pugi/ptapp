@@ -3,6 +3,7 @@ import React, {useState, useMemo, useEffect} from "react";
 import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-alpine.css";
 import moment from "moment";
+import { Button } from "@mui/material";
 
 export default function Traininglist(){
     const [trainings, setTrainings] = useState([]);
@@ -15,6 +16,14 @@ export default function Traininglist(){
         .then(data => setTrainings(data))
     }
 
+    const deleteTraining = (id) => {
+        if (window.confirm('Are you sure?')){
+            fetch(`https://customerrestservice-personaltraining.rahtiapp.fi/api/trainings/${id}`, {method: 'DELETE'})
+            .then(res => fetchData())
+            .catch(err => console.error(err))
+        }
+    }
+
     const defaultColDef = useMemo(() =>{
         return{
             flex: 1,
@@ -24,6 +33,14 @@ export default function Traininglist(){
     });
 
     const [colDefs, setColDefs] = useState([
+        {
+            headerName: "Delete Training",
+            filter: false,
+            field: 'id',
+            cellRenderer: (params) => (
+                <Button size="small" color="error" onClick={() => deleteTraining(params.data.id)}>Delete</Button>
+            ),
+        },
         {field: "activity"},
         {field: "date",
             valueFormatter: p => moment(p.data.date).format('DD.MM.YYYY HH:mm')
