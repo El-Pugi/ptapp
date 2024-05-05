@@ -11,6 +11,9 @@ export default function NavBar(){
             <li>
                 <Link to="/trainings">Trainigs</Link>
             </li>
+            <li>
+                <Link to="/calender">Calender</Link>
+            </li>
         </ul>
     </nav>
     )
