@@ -34,7 +34,7 @@ export default function EditCustomer(props) {
 
     return (
         <div>
-            <Button color="success" onClick={handleClickOpen}>
+            <Button color="success" variant="contained" onClick={handleClickOpen}>
               Edit
             </Button>
             <Dialog open={open} onClose={handleClose}>

@@ -38,7 +38,7 @@ export default function Traininglist(){
             filter: false,
             field: 'id',
             cellRenderer: (params) => (
-                <Button size="small" color="error" onClick={() => deleteTraining(params.data.id)}>Delete</Button>
+                <Button size="small" color="error" variant="contained" onClick={() => deleteTraining(params.data.id)}>Delete</Button>
             ),
         },
         {field: "activity"},

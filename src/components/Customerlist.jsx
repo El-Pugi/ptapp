@@ -2,9 +2,10 @@ import { AgGridReact } from "ag-grid-react";
 import React, {useEffect, useMemo, useState} from "react";
 import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-alpine.css";
-import { Button } from "@mui/material";
+import { Button, Grid } from "@mui/material";
 import AddCustomer from "./AddCustomer";
 import EditCustomer from "./EditCustomer";
+import ExportCSV from "./ExportCSV"
 
 export default function Customerlist(){
     const [customers, setCustomers] = useState([]);
@@ -48,6 +49,10 @@ export default function Customerlist(){
             .catch(err => console.error(err))
         }
     }
+
+    const onExportLocal = () => {
+
+    }
     
     const defaultColDef = useMemo(()=> {
         return{
@@ -63,7 +68,7 @@ export default function Customerlist(){
             filter: false,
             field: '_links.self.href',
             cellRenderer: (params) => (
-                <Button size="small" color="error" onClick={() => deleteCustomer(params.value)}>Delete</Button>
+                <Button size="small" color="error" variant="contained" onClick={() => deleteCustomer(params.value)}>Delete</Button>
             ),
         },
         {
@@ -81,13 +86,18 @@ export default function Customerlist(){
     ])
 
     return(
-        <div className="ag-theme-alpine" style={{ height: 600 }}>
-            <AddCustomer saveCustomer={saveCustomer}/>
-            <AgGridReact rowData={customers} columnDefs={colDefs}
-                pagination={true}
-                paginationPageSize={10}
-                paginationPageSizeSelector={[10,20]}
-                defaultColDef={defaultColDef}/>
-        </div>
+        <> 
+            <div className="button-container">
+                <AddCustomer saveCustomer={saveCustomer} />
+                <ExportCSV data={customers} filename="customers" /> 
+            </div>
+            <div className="ag-theme-alpine" style={{ height: 600 }}>
+                <AgGridReact rowData={customers} columnDefs={colDefs}
+                    pagination={true}
+                    paginationPageSize={10}
+                    paginationPageSizeSelector={[10,20]}
+                    defaultColDef={defaultColDef}/>
+            </div>
+        </>
     )
 }
