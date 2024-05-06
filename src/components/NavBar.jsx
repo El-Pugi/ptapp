@@ -1,4 +1,4 @@
-import {Link} from "react-router-dom"
+import {Link} from "react-router-dom";
 
 export default function NavBar(){
     return (
@@ -12,7 +12,7 @@ export default function NavBar(){
                 <Link to="/trainings">Trainigs</Link>
             </li>
             <li>
-                <Link to="/calender">Calender</Link>
+                <Link to="/calendar">Calendar</Link>
             </li>
         </ul>
     </nav>
