@@ -9,10 +9,10 @@ export default function NavBar(){
                 <Link to="ptapp">Customers</Link>
             </li>
             <li>
-                <Link to="/trainings">Trainigs</Link>
+                <Link to="ptapp/trainings">Trainigs</Link>
             </li>
             <li>
-                <Link to="/calendar">Calendar</Link>
+                <Link to="ptapp/calendar">Calendar</Link>
             </li>
         </ul>
     </nav>
