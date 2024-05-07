@@ -6,7 +6,7 @@ export default function NavBar(){
         <a>PersonalTrainer</a>
         <ul>
             <li>
-                <Link to="/">Customers</Link>
+                <Link to="/ptapp/">Customers</Link>
             </li>
             <li>
                 <Link to="/trainings">Trainigs</Link>
