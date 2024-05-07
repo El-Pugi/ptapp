@@ -11,9 +11,9 @@ export default function App() {
     <>
       <NavBar/>
       <Routes>
-        <Route path='/ptapp/' element={<Customerlist/>}/>
-        <Route path='/trainings' element={<Traininglist/>}/>
-        <Route path='/calendar' element={<Calendar/>}/>
+        <Route path='ptapp' element={<Customerlist/>}/>
+        <Route path='trainings' element={<Traininglist/>}/>
+        <Route path='calendar' element={<Calendar/>}/>
       </Routes>
     </>
   )
